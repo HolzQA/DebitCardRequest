@@ -38,6 +38,19 @@ public class DebitCardNegativeTest {
     }
 
     @Test
+    void shouldNotEmptyName() {
+        driver.get("http://localhost:9999");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79234567233");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+        driver.findElement(By.className("button")).click();
+        String expected = "Поле обязательно для заполнения";
+//        String actual = driver.findElement(By.xpath("//span[@class='input__sub']")).getText().trim();
+        String actual = driver.findElement(By.cssSelector("[data-test-id=name] [class=input__sub]")).getText().trim();
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void shouldNotLatin() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Ivan Petrov");
@@ -45,8 +58,19 @@ public class DebitCardNegativeTest {
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button")).click();
         String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
-//        String actual = driver.findElement(By.xpath("//span[@class='input__sub']")).getText().trim();
         String actual = driver.findElement(By.cssSelector("[data-test-id=name] [class=input__sub]")).getText().trim();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldNotEmptyPhone() {
+        driver.get("http://localhost:9999");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Петров");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+        driver.findElement(By.className("button")).click();
+        String expected = "Поле обязательно для заполнения";
+        String actual = driver.findElement(By.cssSelector("[data-test-id=phone] [class=input__sub]")).getText().trim();
         assertEquals(expected, actual);
     }
 
