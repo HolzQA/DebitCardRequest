@@ -20,6 +20,7 @@ public class DebitCardPositiveTest {
     static void setapAll() {
         WebDriverManager.chromedriver().create();
     }
+
     @BeforeEach
     void setUp() {
 //        driver = new ChromeDriver();

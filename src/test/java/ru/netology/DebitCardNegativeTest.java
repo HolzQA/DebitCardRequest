@@ -18,8 +18,8 @@ public class DebitCardNegativeTest {
 
     @BeforeAll
     static void setapAll() {
-        WebDriverManager.chromedriver().create();
-    }
+      WebDriverManager.chromedriver().create();
+   }
 
     @BeforeEach
     void setUp() {
