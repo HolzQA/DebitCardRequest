@@ -125,7 +125,6 @@ public class DebitCardNegativeTest {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Петров");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79234567233");
-       // driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button")).click();
         String expected = "#ff5c5c";
         String actual = Color.fromString(driver.findElement(By.cssSelector("[data-test-id=agreement].input_invalid .checkbox__text")).getCssValue("color")).asHex();
