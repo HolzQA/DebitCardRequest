@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DebitCardPositiveTest {
@@ -23,7 +22,6 @@ public class DebitCardPositiveTest {
 
     @BeforeEach
     void setUp() {
-//        driver = new ChromeDriver();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
@@ -38,7 +36,6 @@ public class DebitCardPositiveTest {
 
     @Test
     void shouldPassWithCyrillicOne() {
-//        driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("П");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79234567233");
